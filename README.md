@@ -46,7 +46,7 @@ The goal is to develop a canopy height model (CHM) by integrating these datasets
 ### Scripts
 
 1. **GEDI Points Extraction Script**: 
-   - This script extracts the `rh95` values (canopy height) and coordinates of GEDI points. These points are then used to match with Sentinel-1 and Sentinel-2 data based on the geographic coordinates.
+   - This script extracts the `rh95` values (canopy height), dates and coordinates of GEDI points. These points are then used to match with Sentinel-1 and Sentinel-2 data based on the geographic coordinates.
 
 2. **Sentinel-1 Data Extraction Scripts**: 
    - The one month aproach.
