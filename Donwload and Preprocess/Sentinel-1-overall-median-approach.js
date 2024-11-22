@@ -49,13 +49,27 @@ function extractS1MedianValues(gediPoint) {
   return gediPoint.set('VH', VHp.get('VH')).set('VV', VVp.get('VV'));
 }
 
-// Map the extraction function over each GEDI point
-var S1 = Gedi.map(extractS1MedianValues);
+// Calculate the total size of the GEDI collection
+var totalFeatures = Gedi.size();
 
-// Export the resulting feature collection with Sentinel-1 median values to Google Drive
-Export.table.toDrive({
-  collection: S1,
-  folder: 'Data',
-  description: 'Sentinel-1_Overall_Median',
-  fileFormat: 'CSV'
-});
+// Define batch size for processing to manage computational load
+var batchSize = totalFeatures.divide(3).floor(); // Divide into 3 batches (adjust as needed)
+
+// Batch processing: split the GEDI data into smaller batches for computational efficiency
+// This approach helps prevent exceeding memory and processing limitations in Earth Engine
+for (var i = 0; i < 3; i++) {
+  var start = batchSize.multiply(i);
+  var end = (i === 2) ? totalFeatures.subtract(start) : batchSize;
+  var batch = Gedi.toList(end, start); 
+  batch=ee.FeatureCollection(batch)
+  // Map over each GEDI point to extract Sentinel-1 values 
+  batch = batch.map(extractS1Values);
+  // Export the batch to Google Drive in CSV format
+  Export.table.toDrive({
+    collection: batch,
+    folder: 'Data',
+    description: 'Sentinel-1_Overall_Median_batch_' + (i+1),
+    fileFormat: 'CSV'
+  });
+}
+

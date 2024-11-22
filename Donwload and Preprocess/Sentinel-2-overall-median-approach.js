@@ -85,17 +85,13 @@ var batchSize = totalFeatures.divide(3).floor(); // Divide into 3 batches (adjus
 
 // Batch processing: split the GEDI data into smaller batches for computational efficiency
 // This approach helps prevent exceeding memory and processing limitations in Earth Engine
-for (var i = 1; i < 4; i++) {
-  // Define the start and end index for the batch
-  var start = ee.Number(batchSize).multiply(i);
-  var end = (i === 3) ? totalFeatures.subtract(start) : batchSize;
-  
-  // Slice the GEDI collection to get the current batch
-  var batch = ee.FeatureCollection(Gedi.toList(start, end));
-
+for (var i = 0; i < 3; i++) {
+  var start = batchSize.multiply(i);
+  var end = (i === 2) ? totalFeatures.subtract(start) : batchSize;
+  var batch = Gedi.toList(end, start); 
+  batch=ee.FeatureCollection(batch)
   // Map over each GEDI point to extract Sentinel-2 values and flatten properties
-  batch = batch.map(extractS2MedianValues).map(flattenProperties);
-
+  batch = batch.map(extractS2Values).map(flattenProperties);
   // Export the batch to Google Drive in CSV format
   Export.table.toDrive({
     collection: batch,
