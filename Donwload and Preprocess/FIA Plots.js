@@ -16,9 +16,6 @@ var builtUpMask = worldCover.neq(builtUpClass);
 // Combine the masks to exclude both water bodies and built-up areas
 var combinedMask = waterMask.and(builtUpMask);
 
-// Load our saved classifier.
-var regression = ee.Classifier.load('projects/ee-gh41th/assets/RF_2022_median');
-
 // Define target projection and band selection for Sentinel-2
 var targetProjection = ee.Projection('EPSG:5070');
 var bands = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7', 'B8', 'B8A', 'B11', 'B12'];
