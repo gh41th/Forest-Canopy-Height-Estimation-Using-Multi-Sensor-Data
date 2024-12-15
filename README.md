@@ -193,8 +193,8 @@ Run the **JavaScript scripts** in **Google Earth Engine** to extract datasets:
 
 2. **Run Scripts in Sequence:**  
    a. **Preprocess Data:** Follow steps in *Data Download and Preprocessing*.  
-   b. **Train and Evaluate Models:** Run Jupyter notebooks in `Models` folder.  
-   c. **Predict Results:** Execute FIA plot predictions.  
+   b. **Train and Evaluate Models:** Run Jupyter notebooks in *Model Training and Evaluation*  
+   c. **Predict Results:** `Results_Plots.ipynb`.  
 
 3. **Visualize Outputs:** Analyze results stored in the `Results` folder.
 
