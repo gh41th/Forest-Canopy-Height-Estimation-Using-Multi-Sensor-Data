@@ -208,5 +208,5 @@ This project is licensed under the **MIT License**. See the LICENSE file for det
 
 For questions, suggestions, or issues, contact:  
 **Name:** Ghaith Kouki 
-**Email:** gkouki@esf.com  
+**Email:** gkouki@esf.edu
 **GitHub:** [gh41th](https://github.com/gh41th/)  
