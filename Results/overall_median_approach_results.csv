@@ -1,0 +1,17 @@
+Features,Model,Best Params,RMSE
+S2,Random Forest,"{'max_depth': 10, 'n_estimators': 100}",5.823978847318602
+S2,AdaBoost,"{'learning_rate': 0.1, 'n_estimators': 50}",6.109717262697488
+S2,CatBoost,"{'depth': 5, 'iterations': 100, 'learning_rate': 0.1}",5.855016104721948
+S2,XGBoost,"{'learning_rate': 0.1, 'max_depth': 10, 'n_estimators': 100}",5.697353410058853
+S2+S1,Random Forest,"{'max_depth': 10, 'n_estimators': 100}",5.609242149963023
+S2+S1,AdaBoost,"{'learning_rate': 0.1, 'n_estimators': 50}",5.851967666741798
+S2+S1,CatBoost,"{'depth': 5, 'iterations': 100, 'learning_rate': 0.1}",5.604152399078318
+S2+S1,XGBoost,"{'learning_rate': 0.1, 'max_depth': 10, 'n_estimators': 100}",5.419346530500565
+S2+DEM,Random Forest,"{'max_depth': 10, 'n_estimators': 100}",5.422421278536039
+S2+DEM,AdaBoost,"{'learning_rate': 0.1, 'n_estimators': 50}",5.744602684360845
+S2+DEM,CatBoost,"{'depth': 5, 'iterations': 100, 'learning_rate': 0.1}",5.423553321349755
+S2+DEM,XGBoost,"{'learning_rate': 0.1, 'max_depth': 10, 'n_estimators': 100}",5.223883453965888
+S2+S1+DEM,Random Forest,"{'max_depth': 10, 'n_estimators': 100}",5.579226622830588
+S2+S1+DEM,AdaBoost,"{'learning_rate': 0.1, 'n_estimators': 50}",5.921330698617239
+S2+S1+DEM,CatBoost,"{'depth': 5, 'iterations': 100, 'learning_rate': 0.1}",5.59143690018407
+S2+S1+DEM,XGBoost,"{'learning_rate': 0.1, 'max_depth': 10, 'n_estimators': 100}",5.3871782720156425
